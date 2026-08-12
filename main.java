@@ -1,29 +1,34 @@
 import java.util.Scanner;
 
 class UserInput{
-	private int number_;
-	public int getUserInput(){
+	int inputNumber;
+	public int takeUserInput(){
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Enter a number: ");
-		number_ = scanner.nextInt();
-		return number_;
+		inputNumber = scanner.nextInt();
+		return inputNumber;
 }
 }
 
-class Table{
-	private int tableNumber;
-	public void computeTable(){
+class Evaluate{
+	private int number1_;
+	private int number2_;
+	private int number3_;
+
+	public void getInput(){
 		UserInput input = new UserInput();
-		tableNumber = input.getUserInput();
-		for(int i = 1; i <= 10; i++){
-			System.out.println(tableNumber + " x " + i + " = " + (tableNumber * i));
-}
-}
-}
+		number1_ = input.takeUserInput();
+		number2_ = input.takeUserInput();
+		number3_ = input.takeUserInput();
+} 
+	public void evaluateExpression(){
+		getInput();
+		System.out.println((number1_+number2_+number3_)/3);
+}}
 
 public class main{
 	public static void main(String args[]){
-		Table table = new Table();
-		table.computeTable();
+		Evaluate evaluate = new Evaluate();
+		evaluate.evaluateExpression();
 }
 }
