@@ -1,18 +1,36 @@
+import java.util.Scanner;
 
+class UserInput{
+	private int number_;
+	public int takeUserInput(){
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter a number: ");
+		number_ = scanner.nextInt();
+		return number_;
+}
+}
 
-@@11class BinaryOperation{
-	private int num1_ = 0b10;
-	private int num2_ = 0b11;
-	private int result;
-	public void binaryAddition(){
-		result = num1_ & num2_;
-		System.out.println(Integer.toBinaryString(result));	
+class Partition{
+	private int inputNumber_;
+	
+	public void takeInput(){
+		UserInput input = new UserInput();
+		inputNumber_ = input.takeUserInput();
+		
+}
+	public void partitionNumber(){
+		takeInput();
+		
+		while(inputNumber_ != 0){
+			System.out.println(inputNumber_ % 10);
+			inputNumber_a = inputNumber_ / 10;
+}
 }
 }
 
 public class main{
 	public static void main(String args[]){
-		BinaryOperation binaryOperation = new BinaryOperation();
-		binaryOperation.binaryAddition();
+		Partition partition = new Partition();
+		partition.partitionNumber();
 }
-}11@@
+}
