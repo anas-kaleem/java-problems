@@ -1,43 +1,24 @@
-import java.util.Scanner;
+class Test{
+  public void print(){
+    for(int i = 1; i <= 90; i++){
+      if(i <= 12){
+	if(i % 2 != 0){System.out.print("*");
+	
+}//if(i%2 != 0)
+	else if(i%2 == 0){System.out.print(" ");
 
-//class UserInput starts here.
-class UserInput{
-  private int integerInput;
-  private char characterInput;
-  public int takeIntegerInput(){
-    Scanner scanner = new Scanner(System.in);
-    integerInput = scanner.nextInt();
-    return integerInput;	  
-}//takeIntegerInput function end bracket.
+}//elseif(i%2 ==0)
+}//if(i<=12)
+      else if(i>12){System.out.print("=");}//elseif(i>12)
+}//for() inside Print()
+}//void Print()
+}//class Test{}
 
-  public char takeCharacterInput(){
-    Scanner scanner = new Scanner(System.in);
-    characterInput = scanner.next().charAt(0);
-    return characterInput;
-}//takeCharacterInput end bracket.
-}//class userInput end bracket.
+public class main{
+  public static void main(String args[]){
+    Test test = new Test();
+    test.print();
+}//public Static Void Main()
+}//class main
 
-class Prompt{
-  private int number;
-  private String[] lines = {"Enter p to produce an item in buffer","Enter c to consume an item from buffer", "Enter q to quit"};
-  public void showPrompt(){
-    for(int i = 0; i<3; i++){System.out.println(lines[i]);}//first for loop inside showPrompt function end bracket.
-}//showPrompt function end bracket.
 
-  public int getSize(){
-    System.out.print("Please enter the size of buffer: ");
-    UserInput input = new UserInput();
-    number = input.takeIntegerInput();
-    return number;
-}//getSize function end bracket.
-}//class prompt end bracket.
-
-class ProducerConsumer{
-  private char produce = 'p';
-  private int[] buffer;
-  public void produce(){
-    Prompt prompt = new Prompt();
-    buffer = new int[prompt.getSize()];
-    prompt.showPrompt();
-}//produce function end bracket.
-}//class ProducerConsumer end bracket.
