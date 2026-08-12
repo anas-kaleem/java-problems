@@ -1,33 +1,38 @@
 import java.util.Scanner;
 
-class myClass{
-  private int inputNum = 250;
+class Test{
+  private int inputNum;
   private int helpingNum;
+  private int hexaNum = 0;
+  private int binaryPosition = 1;
   private char arr[] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+  private int decimalSum = 0;
   private String hexaDecimal = "";
   public void func(){
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("Enter the binary number: ");
+    inputNum = scanner.nextInt();
     while(inputNum > 0){
+      helpingNum = (inputNum % 2);
+      decimalSum = (helpingNum * binaryPosition) + decimalSum;
+      inputNum = inputNum / 10;
+      binaryPosition = (binaryPosition * 2);
+}//1st_while
 
-      helpingNum = inputNum % 16;
-      hexaDecimal = hexaDecimal + (arr[helpingNum]);
-      inputNum = inputNum / 16;
-}//while_loop
-    System.out.printf("The hexadecimal number of %d is: %s",inputNum,hexaDecimal);
+    while(decimalSum > 0){
+      helpingNum = (decimalSum % 16);
+      hexaDecimal = (arr[helpingNum]) + hexaDecimal;
+      decimalSum = decimalSum / 16;
+
+}//2nd_while
+    
+System.out.println(hexaDecimal);
 }//func()
 }//class Test
 
-public class test{
+public class main{
   public static void main(String args[]){
-	myClass myObj = new myClass();
-	myObj.func();
-}//class test
-}//main()
-
-
-//Scanner scanner = new Scanner(System.in);
-    //number1 = scanner.nextInt();
-      //number2 = (number1 % 100);
-     //number1 = (number1 / 100);
-	//System.out.println(number1 % 100);
-	//System.out.print(number1 / 100);
-    //System.out.printf("number is: %d. hexadecimal is: %s",number1,hexaDecimal);
+	Test test = new Test();
+	test.func();
+}
+}
