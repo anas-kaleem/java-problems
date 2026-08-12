@@ -1,38 +1,18 @@
-import java.util.Scanner;
 
-class UserInput{
-	private int inputNumber_;
-	public int takeUserInput(){
-                Scanner scanner = new Scanner(System.in);
-		System.out.print("Enter a number: ");
-		inputNumber_ = scanner.nextInt();
-		return inputNumber_;
-}
-}
 
-class Swapper{
-	private int number1_;
-	private int number2_;
-	private int temporaryNumber_;
-	public void swapTwoNumbers(){
-		UserInput input = new UserInput();
-		number1_ = input.takeUserInput();
-		number2_ = input.takeUserInput();
-		temporaryNumber_ = number1_;
-		number1_ = number2_;
-		number2_ = temporaryNumber_;
-		printSwappedNumber();
-		
-}
-	public void printSwappedNumber(){
-		System.out.println(number1_);
-		System.out.println(number2_);
+@@11class BinaryOperation{
+	private int num1_ = 0b10;
+	private int num2_ = 0b11;
+	private int result;
+	public void binaryAddition(){
+		result = num1_ & num2_;
+		System.out.println(Integer.toBinaryString(result));	
 }
 }
 
 public class main{
 	public static void main(String args[]){
-		Swapper swapper = new Swapper();
-		swapper.swapTwoNumbers();
+		BinaryOperation binaryOperation = new BinaryOperation();
+		binaryOperation.binaryAddition();
 }
-}
+}11@@
