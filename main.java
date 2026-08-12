@@ -1,42 +1,33 @@
+import java.util.Scanner;
 
-class Test{
-  
-  private int number = 5;
-  private String binaryString = "";
-  private int arr[] = {128,64};
-  public void print(){
+class myClass{
+  private int inputNum = 250;
+  private int helpingNum;
+  private char arr[] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+  private String hexaDecimal = "";
+  public void func(){
+    while(inputNum > 0){
 
-    while(number != 0){
-      if(number == arr[0]){
-        binaryString = binaryString + '1';
-	number = arr[0] - number;
-	arr[0] = arr[1];
-        arr[1] = (arr[1]/2);
-}//1stIf
-      else if((number < arr[0]) && (number >= arr[1])){
-	binaryString = binaryString + '1';
-	number = number - arr[1];
-        arr[0] = arr[1];
-        arr[1] = (arr[1]/2);
-}//1stElseifOF1stIf
-      else{
-	binaryString = binaryString + '0';
-        arr[0] = arr[1];
-        arr[1] = (arr[1]/2);
-	
-}//elseOF1stIf
-	System.out.print(arr[0]);
-        System.out.println(arr[1]);
-}//while(num ==1 )
-
-System.out.println("");
-System.out.printf("The binary form of the number %d is: %s ",number,binaryString);
-}//print()
+      helpingNum = inputNum % 16;
+      hexaDecimal = hexaDecimal + (arr[helpingNum]);
+      inputNum = inputNum / 16;
+}//while_loop
+    System.out.printf("The hexadecimal number of %d is: %s",inputNum,hexaDecimal);
+}//func()
 }//class Test
 
-public class main{
+public class test{
   public static void main(String args[]){
-    Test test = new Test();
-    test.print();
+	myClass myObj = new myClass();
+	myObj.func();
+}//class test
 }//main()
-}//class main()
+
+
+//Scanner scanner = new Scanner(System.in);
+    //number1 = scanner.nextInt();
+      //number2 = (number1 % 100);
+     //number1 = (number1 / 100);
+	//System.out.println(number1 % 100);
+	//System.out.print(number1 / 100);
+    //System.out.printf("number is: %d. hexadecimal is: %s",number1,hexaDecimal);
