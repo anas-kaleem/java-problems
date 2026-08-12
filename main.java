@@ -3,7 +3,7 @@ import java.util.Scanner;
 class Test{
   private int inputNum;
   private int helpingNum;
-  private int hexaNum = 0;
+  private int octalNum = 0;
   private int binaryPosition = 1;
   private char arr[] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
   private int decimalSum = 0;
@@ -20,9 +20,9 @@ class Test{
 }//1st_while
 
     while(decimalSum > 0){
-      helpingNum = (decimalSum % 16);
-      hexaDecimal = (arr[helpingNum]) + hexaDecimal;
-      decimalSum = decimalSum / 16;
+      helpingNum = (decimalSum % 8);
+      hexaDecimal = helpingNum + hexaDecimal;
+      decimalSum = decimalSum / 8;
 
 }//2nd_while
     
