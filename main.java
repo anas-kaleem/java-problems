@@ -1,39 +1,26 @@
-import java.util.Scanner;
-import java.lang.Integer;
-
-class UserInput{
-  private String binaryString_;
-  public String getUserInput(){
-    Scanner scanner = new Scanner(System.in);
-    binaryString_ = scanner.nextLine();
-    return binaryString_;
-}//getUserInput()
-}//UserInput class
-
 class Test{
-  private String binaryString1_;
-  private String binaryString2_;
-  private int decimalSum;
-  private String binarySum;
-  public String getUserInput(){
-    UserInput input = new UserInput();
-    return input.getUserInput();
-      
-}//func
+  private int num = 1;
+  private int number = 5;
+  private int arr[] = {128,64};
+  public void print(){
 
-  public void binaryAddition(){
-    binaryString1_ = getUserInput();
-    binaryString2_ = getUserInput();
-    decimalSum = Integer.parseInt(binaryString1_,2) + Integer.parseInt(binaryString2_,2);
-      binarySum = Integer.toBinaryString(decimalSum);
-      System.out.println(binarySum);
-      System.out.println(decimalSum);
-}//binaryAddition
-}//Test class
+    while(num == 1){
+      if(arr[1] == 0){
+        num = 0;
+}//1stIf
+      else if(num != 0){
+	System.out.print(arr[0]);
+        System.out.println(arr[1]);
+        arr[0] = arr[1];
+        arr[1] = (arr[1]/2);
+}//1stElseifOF1stIf
+}//while(num ==1 )
+}//print()
+}//class Test
 
 public class main{
   public static void main(String args[]){
     Test test = new Test();
-    test.binaryAddition();
-}
-}
+    test.print();
+}//main()
+}//class main()
