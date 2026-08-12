@@ -1,41 +1,43 @@
-//class starts here.
-class Processes{
+import java.util.Scanner;
 
-//private variables start.
-	private int[] processBurst = {16,8,5,10};
-	private int[] timer = {0,0,0,0};
-	private int timeSlice = 5;
-	private int endLoop = 0;
-	private int i = 0;
-//private variables end.
+//class UserInput starts here.
+class UserInput{
+  private int integerInput;
+  private char characterInput;
+  public int takeIntegerInput(){
+    Scanner scanner = new Scanner(System.in);
+    integerInput = scanner.nextInt();
+    return integerInput;	  
+}//takeIntegerInput function end bracket.
 
-//public methods start.
-	public void completionTime(){
+  public char takeCharacterInput(){
+    Scanner scanner = new Scanner(System.in);
+    characterInput = scanner.next().charAt(0);
+    return characterInput;
+}//takeCharacterInput end bracket.
+}//class userInput end bracket.
 
-//loop through both arrays of class. update each value in both arrays. increment each value //of timer array by 5. and decrease each value of processBurst array by 5. last value of //processBurst is checked if decrementing it by 5 is less than or greater than 0. if it is //greater than zero then normal actitvities happen(adding and subtracting 5 in that index //of both arrays respectively). But if last value of processBurst is less than zero then //the value subtracted
-		while(endLoop != 4){
-			if((processBurst[i] - timeSlice) > 0){timer[i] = timer[i] + timeSlice; processBurst[i] = processBurst[i] - timeSlice;}
+class Prompt{
+  private int number;
+  private String[] lines = {"Enter p to produce an item in buffer","Enter c to consume an item from buffer", "Enter q to quit"};
+  public void showPrompt(){
+    for(int i = 0; i<3; i++){System.out.println(lines[i]);}//first for loop inside showPrompt function end bracket.
+}//showPrompt function end bracket.
 
-			else{if(processBurst[i] != 0 &&(processBurst[i] - timeSlice) == 0){timer[i] = timer[i]+timeSlice; processBurst[i] = processBurst[i]+timeSlice; 			endLoop = endLoop + 1;}
+  public int getSize(){
+    System.out.print("Please enter the size of buffer: ");
+    UserInput input = new UserInput();
+    number = input.takeIntegerInput();
+    return number;
+}//getSize function end bracket.
+}//class prompt end bracket.
 
-			else if(processBurst[i] > 0 && (processBurst[i] - timeSlice) == 0){timer[i] = timer[i] + processBurst[i]; processBurst[i] 					= 0; endLoop = endLoop+1;}
-			
-			else{break;}
-}
-		i++;	
-}//for loop ends here.
-
-
-for(int i =0; i <4 ; i++){System.out.println(processBurst[i]); System.out.print(timer[i]);}
-}//method ends here.
-
-
-}//class ends here.
-
-
-public class main{
-	public static void main(String [] args){
-		Processes processes = new Processes();
-		processes.completionTime();
-}
-}
+class ProducerConsumer{
+  private char produce = 'p';
+  private int[] buffer;
+  public void produce(){
+    Prompt prompt = new Prompt();
+    buffer = new int[prompt.getSize()];
+    prompt.showPrompt();
+}//produce function end bracket.
+}//class ProducerConsumer end bracket.
