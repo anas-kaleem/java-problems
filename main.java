@@ -1,16 +1,15 @@
-class Name{
-	private String name_ = "anas";
-	public void printHello(){
-		System.out.println("Hello");
-		System.out.println(name_);
+class sumOfNumbers{
+	private int number1_ = 74;
+	private int number2_ = 36;
+	public int computeSum(){
+		return number1_ + number2_;
 }
+	
 }
 
-
-public class Main{
+public class main{
 	public static void main(String args[]){
-		Name name = new Name();
-		name.printHello();
+		sumOfNumbers sumObject = new sumOfNumbers();
+		System.out.println(sumObject.computeSum()); 
 }
-
 }
