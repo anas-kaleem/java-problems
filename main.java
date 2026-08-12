@@ -1,27 +1,24 @@
 import java.util.Scanner;
 
-class Capital{
-  private char text[];
-  public void capitalizeText(){
+class Reverse{
+  private String inputText;
+  private String outputText = "";
+  public void reverseText(){
     Scanner scanner = new Scanner(System.in);
-    System.out.print("Enter the text");
-    text = scanner.nextLine().toCharArray();
-    text[0] = Character.toUpperCase(text[0]);
-    for(int i = 0; i < text.length; i++){
-      if(text[i] == '.'){
-        text[i+2] = Character.toUpperCase(text[i+2]); 
-}
-}
-    for(int j = 0; j < text.length; j++){
-      System.out.print(text[j]);
-}
-}
-}
+    System.out.print("Enter the text: ");
+    inputText = scanner.nextLine();
+    
+    for(int i = (inputText.length() - 1); i >= 0; i--){
+      outputText = outputText + inputText.charAt(i);  
+}//for-loop-in-reverseText()
 
+    System.out.print(outputText);
+}//void-reverseText()
+}//class-Reverse{}
 
 public class main{
   public static void main(String args[]){
-    Capital capital = new Capital();
-    capital.capitalizeText();
+    Reverse reverse = new Reverse();
+    reverse.reverseText();
 }
 }
