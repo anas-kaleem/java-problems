@@ -1,34 +1,38 @@
-class Flag{
-	public void printFlag(){
-		for(int i =0; i<20; i++){
-			if(i<10){
-				if(i%2!=0){
-					for(int j =0; j < 30;j++){
-						if(j<7 && j %2 !=0){
-							System.out.print("*");}
-						else if(j>=7){System.out.print("=");}
+import java.util.Scanner;
 
-}
-					System.out.println("");
-}
-				else if(i%2 == 0){
-					for(int j =0; j<30;j++){
-						if(j<7 && j%2 ==0 ){System.out.print						("*");}
-						else if(j>=7){System.out.print("=");}
-}
-}
-}
-			else if(i>=10){
-				for(int j = 0; j<30;j++){System.out.print("=");}
-				System.out.println("");
+class UserInput{
+	private int inputNumber_;
+	public int takeUserInput(){
+                Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter a number: ");
+		inputNumber_ = scanner.nextInt();
+		return inputNumber_;
 }
 }
+
+class Swapper{
+	private int number1_;
+	private int number2_;
+	private int temporaryNumber_;
+	public void swapTwoNumbers(){
+		UserInput input = new UserInput();
+		number1_ = input.takeUserInput();
+		number2_ = input.takeUserInput();
+		temporaryNumber_ = number1_;
+		number1_ = number2_;
+		number2_ = temporaryNumber_;
+		printSwappedNumber();
+		
+}
+	public void printSwappedNumber(){
+		System.out.println(number1_);
+		System.out.println(number2_);
 }
 }
 
 public class main{
 	public static void main(String args[]){
-		Flag flag = new Flag();
-		flag.printFlag();
+		Swapper swapper = new Swapper();
+		swapper.swapTwoNumbers();
 }
 }
