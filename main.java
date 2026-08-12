@@ -1,33 +1,34 @@
 import java.util.Scanner;
 
-class Subtraction{
+class Comparison{
   private int number1;
   private int number2;
-  private int number3;
-  private int result;
-  private boolean isTrue;
-  public void subtract(){
+  public void printResult(){
+    System.out.print(compareNumbers());
+}
+  public int compareNumbers(){
     Scanner scanner = new Scanner(System.in);
     System.out.print("Enter first number: ");
     number1 = scanner.nextInt();
-    System.out.print("Enter 2nd number: ");
+    System.out.print("Enter second number: ");
     number2 = scanner.nextInt();
-    System.out.print("Enter 3rd number: ");
-    number3 = scanner.nextInt();
-    
-    result = number1 - number2;
-    if(number3 <= result - 20){
-      isTrue = true;
-}
-    else{isTrue = false;}
+    if(number1 == number2){return 0;}
 
-    System.out.print(isTrue);
+    else if((number1 % 6) == (number2 % 6)){
+      if(number1 < number2){return number1;}
+      else{return number2;}
+}
+
+    else{
+      if(number1 < number2){return number2;}
+      else{return number1;}
+}
 }
 }
 
 public class main{
   public static void main(String args[]){
-    Subtraction subtraction = new Subtraction();
-    subtraction.subtract();
+    Comparison comparison = new Comparison();
+    comparison.printResult();
 }
 }
