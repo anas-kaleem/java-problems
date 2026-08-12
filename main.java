@@ -1,34 +1,34 @@
-import java.util.Scanner;
+class Flag{
+	public void printFlag(){
+		for(int i =0; i<20; i++){
+			if(i<10){
+				if(i%2!=0){
+					for(int j =0; j < 30;j++){
+						if(j<7 && j %2 !=0){
+							System.out.print("*");}
+						else if(j>=7){System.out.print("=");}
 
-class UserInput{
-	int inputNumber;
-	public int takeUserInput(){
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Enter a number: ");
-		inputNumber = scanner.nextInt();
-		return inputNumber;
+}
+					System.out.println("");
+}
+				else if(i%2 == 0){
+					for(int j =0; j<30;j++){
+						if(j<7 && j%2 ==0 ){System.out.print						("*");}
+						else if(j>=7){System.out.print("=");}
 }
 }
-
-class Evaluate{
-	private int number1_;
-	private int number2_;
-	private int number3_;
-
-	public void getInput(){
-		UserInput input = new UserInput();
-		number1_ = input.takeUserInput();
-		number2_ = input.takeUserInput();
-		number3_ = input.takeUserInput();
-} 
-	public void evaluateExpression(){
-		getInput();
-		System.out.println((number1_+number2_+number3_)/3);
-}}
+}
+			else if(i>=10){
+				for(int j = 0; j<30;j++){System.out.print("=");}
+				System.out.println("");
+}
+}
+}
+}
 
 public class main{
 	public static void main(String args[]){
-		Evaluate evaluate = new Evaluate();
-		evaluate.evaluateExpression();
+		Flag flag = new Flag();
+		flag.printFlag();
 }
 }
