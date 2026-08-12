@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class userInput{
+class UserInput{
 	private int number_;
 	public int getUserInput(){
 		Scanner scanner = new Scanner(System.in);
@@ -10,22 +10,20 @@ class userInput{
 }
 }
 
-class Sum{
-	private int number1_;
-	private int number2_;
-	private int sumNumber;
-	public void computeSum(){
-		userInput input = new userInput();
-		number1_ = input.getUserInput();
-		number2_ = input.getUserInput();
-		sumNumber = number1_ + number2_;
-		System.out.print(sumNumber);
+class Table{
+	private int tableNumber;
+	public void computeTable(){
+		UserInput input = new UserInput();
+		tableNumber = input.getUserInput();
+		for(int i = 1; i <= 10; i++){
+			System.out.println(tableNumber + " x " + i + " = " + (tableNumber * i));
+}
 }
 }
 
 public class main{
 	public static void main(String args[]){
-		Sum sum = new Sum();
-		sum.computeSum();
+		Table table = new Table();
+		table.computeTable();
 }
 }
