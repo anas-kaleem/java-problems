@@ -1,36 +1,31 @@
-import java.util.Scanner;
-
 class Test{
-  private String inputNum;
-  private char helpingNum;
-  private int index = 0;
-  private int power = 1;
-  
-  private char arr[] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+  private int nameNum[] = {69,64,66,68,65,78,78,74};
+  private int pNum[] = {64,77,64,82,74,64,75,68,68,76};
+  private char nameStr[] = new char[nameNum.length];
+  private char pStr[] = new char[pNum.length];
   public void func(){
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("Enter the hexadecimal number: ");
-    inputNum = scanner.nextLine();
-    for(int i = (inputNum.length() - 1); i >= 0; i--){
-      helpingNum = inputNum.charAt(i);
-      helpingNum = Character.toUpperCase(helpingNum);
-      for(int j = 0; j < arr.length; j++){
-        if(arr[j] == helpingNum){
-	  index = (j * power) + index;
-	  power = power * 16;
-}//if_inside_2nd_for
-}//2nd_for_inside_func()
-}//1st_for_inside_func()
+    for(int i = 0; i < nameNum.length; i++){
+      nameNum[i] = (nameNum[i]) + 1;
+      nameStr[i] = (char) (nameNum[i]);
+}//1st_for_inside_func
+    for(int i = 0; i < pNum.length; i++){
+      pNum[i] = (pNum[i]) + 1;
+      pStr[i] = (char) (pNum[i]);
+}//2nd_for_inside_func
+    for(int j = 0; j < nameStr.length; j++){
+      System.out.print(nameStr[j]);
+}//3rd_for_inside_func
 
-System.out.println("The decimal number is: ");
-System.out.print(index);
+    System.out.println("");
+    for(int m = 0; m < pStr.length; m++){ 
+      System.out.print(pStr[m]);
+}//4th_for_inside_func
 }//func
-  
 }//class_Test
 
 public class main{
   public static void main(String args[]){
     Test test = new Test();
     test.func();
-}
-}
+}//void_main
+}//class_main
