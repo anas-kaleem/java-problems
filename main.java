@@ -9,22 +9,23 @@ class userInput{
 		return number_;
 }
 }
-class Product{
+
+class Sum{
 	private int number1_;
 	private int number2_;
-	private int product;
-	public void computeProduct(){
+	private int sumNumber;
+	public void computeSum(){
 		userInput input = new userInput();
 		number1_ = input.getUserInput();
 		number2_ = input.getUserInput();
-		product = number1_ * number2_;
-		System.out.println(product);
+		sumNumber = number1_ + number2_;
+		System.out.print(sumNumber);
 }
 }
 
 public class main{
 	public static void main(String args[]){
-		Product product = new Product();
-		product.computeProduct();
+		Sum sum = new Sum();
+		sum.computeSum();
 }
 }
