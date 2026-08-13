@@ -1,41 +1,35 @@
 import java.util.Scanner;
 
-class Characters{
+class Half{
   private String text;
   private boolean endLoop = false;
-  private char arr[];
-  public void printCharacters(){
+  private int halfLength;
+  public void printHalf(){
     Scanner scanner = new Scanner(System.in);
-    System.out.print("Enter a line consisting of at least 3 letters: ");
+    System.out.print("Enter text consisting of even number of letters: ");
     text = scanner.nextLine();
-   
+
     while(endLoop == false){
-      if(text.length() < 3){
-     	System.out.print("Text is smaller than 3 letters. Enter the text again: ");
-        text = scanner.nextLine();
+      if(text.length() % 2 != 0){
+        System.out.print("text consists of odd number of letters. enter text again: ");
+	text = scanner.nextLine();   
 }//if
       else{
-	endLoop = true;
+  	endLoop = true;
 }//else
 }//while
 
-   arr = new char[3];
-   int j = 0;
-   for(int i = text.length() - 1; i >= (text.length() - 3); i--){
-     
-     arr[j] = (text.charAt(i));
-     j++;
-}//for
-
-   for(int i = 3; i >= 0; i--){
-     System.out.printf("%c%c%c", arr[2], arr[1], arr[0]);
+    halfLength = text.length()/2;
+    for(int i = 0; i < halfLength; i++){
+      System.out.print(text.charAt(i));
 }
-}//printCharacters
-}//Characters
+}//func-printHalf()
+}//class-half{}
 
 public class main{
   public static void main(String args[]){
-    Characters characters = new Characters();
-    characters.printCharacters();
+    Half half = new Half();
+    half.printHalf();
+    
 }
 }
