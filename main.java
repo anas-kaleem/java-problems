@@ -1,35 +1,31 @@
 import java.util.Scanner;
 
-class Half{
-  private String text;
-  private boolean endLoop = false;
-  private int halfLength;
-  public void printHalf(){
+class Length{
+  private String text1;
+  private String text2;
+  private int str1Length;
+  private int str2Length;
+  public void printSequence(){
     Scanner scanner = new Scanner(System.in);
-    System.out.print("Enter text consisting of even number of letters: ");
-    text = scanner.nextLine();
-
-    while(endLoop == false){
-      if(text.length() % 2 != 0){
-        System.out.print("text consists of odd number of letters. enter text again: ");
-	text = scanner.nextLine();   
-}//if
-      else{
-  	endLoop = true;
-}//else
-}//while
-
-    halfLength = text.length()/2;
-    for(int i = 0; i < halfLength; i++){
-      System.out.print(text.charAt(i));
+    System.out.print("Enter first text: ");
+    text1 = scanner.nextLine();
+    System.out.print("Enter second text: ");
+    text2 = scanner.nextLine();
+    
+    str1Length = text1.length();
+    str2Length = text2.length();
+    if(str1Length < str2Length){
+      System.out.print(text1 + " " +  text2 + " " + text1);
 }
-}//func-printHalf()
-}//class-half{}
+    else{
+      System.out.print(text2 + " " + text1 + " "+ text2);
+}
+}
+}
 
 public class main{
   public static void main(String args[]){
-    Half half = new Half();
-    half.printHalf();
-    
+    Length length = new Length();
+    length.printSequence();   
 }
 }
