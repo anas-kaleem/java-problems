@@ -1,41 +1,24 @@
 import java.util.Scanner;
 
-class Characters{
-  private String text1;
-  private String text2;
-  private String result = "";
-  public void concatenateText(){
+class Ten{
+  private int numbers[] = new int[7];
+  public void checkTen(){
     Scanner scanner = new Scanner(System.in);
-    System.out.print("Enter first word or sentence: ");
-    text1 = scanner.nextLine();
-    System.out.print("Enter second word or sentence: ");
-    text2 = scanner.nextLine();
+    for(int i = 0; i < numbers.length; i++){
+      System.out.print("\nEnter the number: ");
+      numbers[i] = scanner.nextInt();
+}//first-for-loop
 
-    if(text1.length() == 0){
-      result = result + "#";
-      
-}//first-if
-
-    else{
-      result = result + text1.charAt(0);
-}//first-else-of-first-if
-  
-    if(text2.length() == 0){
-      result = result + "#";
-   
-}//second-if
-
-    else{
-      result = result + text2.charAt(text2.length() - 1);
-}
-
-    System.out.print(result);
-}		
-}
+    if(numbers[0] == 10){System.out.printf("\nfirst number is %d", numbers[0]);}
+    else{System.out.print("\nfirst number is not 10");}
+    if(numbers[numbers.length - 1] == 10){System.out.printf("\nlast number is %d", numbers[numbers.length - 1]);}
+    else{System.out.print("\nlast number is not 10");}
+}//void-checkTen()
+}//class-Ten{}
 
 public class main{
   public static void main(String args[]){
-    Characters character = new Characters();
-    character.concatenateText();
+    Ten ten = new Ten();
+    ten.checkTen();
 }
 }
