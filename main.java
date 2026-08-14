@@ -1,24 +1,31 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
-class MyArrays{
-  private int numbers[] = new int[2];
-  public void checkNumbers(){
+class LargestValue{
+  private int numbers[] = new int[3];
+  public int getLargestNumber(int number1, int number2){
+    if(number1 < number2){return number2;}
+    else{return number1;}
+}//getLargestNumber()
+
+  public void printLargestNumber(){
+    int largestNumber;
     Scanner scanner = new Scanner(System.in);
     for(int i = 0; i < numbers.length; i++){
       System.out.printf("\nEnter number# %d: ", i);
       numbers[i] = scanner.nextInt();
-      
-}
+}//first-for-in-printLargestNumber()
+    
+    largestNumber = getLargestNumber(numbers[0], numbers[numbers.length - 1]);
+    System.out.print("\nOriginal Array: " + Arrays.toString(numbers));
+    System.out.printf("\nLargest value between first and last element: %d", largestNumber);
+}//printLargestNumber()
 
-    if(numbers[0] == 4 || numbers[0] == 7){System.out.printf("\nnumber# %d exists in array", numbers[0]);}
-    else if(numbers[1] == 4 || numbers[1] == 7){System.out.printf("\nnumber# %d exists in array", numbers[1]);}
-    else{System.out.print("none of 4 or 7 exists in array");}
-}
-}
+}//class-LargestValue{}
 
 public class main{
   public static void main(String args[]){
-    MyArrays arrays = new MyArrays();
-    arrays.checkNumbers();
+    LargestValue largestValue = new LargestValue();
+    largestValue.printLargestNumber();
 }
 }
