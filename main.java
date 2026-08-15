@@ -1,32 +1,36 @@
 import java.util.Scanner;
-import java.util.Arrays;
 
-class Swapper{
-  private int numbers[] = new int[3];
+class Product{
 
-  public int[] swapNumber(int[] numbers){
-     int temporary = numbers[0];
-     numbers[0] = numbers[numbers.length - 1];
-     numbers[numbers.length - 1] = temporary;
-     return numbers;
-     
-}//swapNumber
-  public void swapArray(){
+  private int array1[] = new int[4];
+  private int array2[] = new int[4];
+  private int result[] = new int[4];
+  public void multiplyArrays(){
     Scanner scanner = new Scanner(System.in);
-    for(int i = 0; i < numbers.length; i++){
-      System.out.printf("\nEnter number# %d: ", i);
-      numbers[i] = scanner.nextInt();
-}//for
-  
-  System.out.print("\nOriginal Array: " + Arrays.toString(numbers));
-  System.out.print("\nNew Array after swapping: " + Arrays.toString(swapNumber(numbers)));  
-	    
+    for(int i = 0; i < array1.length; i++){
+      System.out.printf("\nEnter number# %d of array1: ",i);
+      array1[i] = scanner.nextInt();     
+}//first-for-loop
+
+    for(int i = 0; i < array2.length; i++){
+      System.out.printf("\nEnter number# %d of array2: ",i);
+      array2[i] = scanner.nextInt();  
+}//second-for-loop
+
+    for(int i = 0; i < array1.length; i++){
+      result[i] = (array1[i] * array2[i]);
 }
+    System.out.print("\nResult: ");
+    for(int i = 0; i < result.length; i++){
+      System.out.printf("%d ",result[i]);
 }
+}//multipleArrays()
+
+}//class-Multiplicaion
 
 public class main{
   public static void main(String args[]){
-    Swapper swapper = new Swapper();
-    swapper.swapArray();
+    Product product = new Product();
+    product.multiplyArrays();
 }
 }
