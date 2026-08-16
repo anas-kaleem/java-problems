@@ -1,39 +1,33 @@
 import java.util.Scanner;
 
-class Numbers{
-  private int inputNum;
-  private int numbers[] = new int[7];
-  public void checkNumbers(){
+class Twenty{
+  private int numbers[] = new int[8];
+  private boolean isUnique[] = {false, false, false};
+  
+  public void checkTwenty(){
     Scanner scanner = new Scanner(System.in);
     for(int i = 0; i < numbers.length; i++){
-      System.out.printf("\nEnter the nmber on index# %d: ", i+1);
+      System.out.printf("\nEnter the number for index# %d",i+1);
       numbers[i] = scanner.nextInt();
-
 }
-
-    System.out.print("\nEnter the number you want to find: ");
-    inputNum = scanner.nextInt();
-
-    for(int i = 0; i < numbers.length; i++){
-      if((i < numbers.length - 1) && (numbers[i] == inputNum) && (numbers[i + 1] == inputNum)){
-	System.out.printf("\nNumbers matched. Number you gave: %d, is same as the number at %d: %d & %d: %d", inputNum, i, numbers[i], i + 1, numbers[i+1]); break;		
-	
-}
-
-      else if((i < numbers.length - 2) && (numbers[i] == inputNum) && (numbers[i + 2] == inputNum)){
-      	System.out.printf("\nNumbers matched. Number you gave: %d is same as in array at %d: %d & %d: %d",inputNum, i, numbers[i], i + 2, numbers[i+2]); break;
-}
-
-      else{
-      	if(i == numbers.length - 1){System.out.print("Nothing matched.");}
+    int index = 0;
+    for(int i = 0; i < numbers.length - 1; i++){
+      if((numbers[i] == 20) && (numbers[i+1] != 20)){
+	isUnique[index] = true;
+	index = index + 1;
 }
 }
+
+    if((isUnique[0] == true) && (isUnique[1] == true) && (isUnique[2] == true)){
+      System.out.print("\nYes! there are 3X twenties in your given array");
+}
+    else{System.out.print("\nNo! the twenties in your given array are either less than 3 or they are consecutive.");}
 }
 }
 
 public class main{
   public static void main(String args[]){
-    Numbers number = new Numbers();
-    number.checkNumbers();
+    Twenty twenty = new Twenty();
+    twenty.checkTwenty();
 }
 }
