@@ -14,13 +14,13 @@ class Numbers{
     System.out.print("\nEnter the number you want to find: ");
     inputNum = scanner.nextInt();
 
-    for(int i = 0; i < numbers.length; i++){
-      if((numbers[i] == inputNum) && (numbers[i + 1] == inputNum) && (i < numbers.length - 1)){
+    for(int i = 0; i < numbers.length - 1; i++){
+      if((numbers[i] == inputNum) && (numbers[i + 1] == inputNum)){
 	System.out.printf("\nNumbers matched. Number you gave: %d, is same as the number at %d: %d & %d: %d", inputNum, i, numbers[i], i + 1, numbers[i+1]); break;		
 	
 }
 
-      else if((numbers[i] == inputNum) && (numbers[i + 2] == inputNum) && (i < numbers.length - 2)){
+      else if((numbers[i] == inputNum) && (numbers[i + 2] == inputNum)){
       	System.out.printf("\nNumbers matched. Number you gave: %d is same as in array at %d: %d & %d: %d",inputNum, i, numbers[i], i + 2, numbers[i+2]); break;
 }
 
