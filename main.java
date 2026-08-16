@@ -1,26 +1,42 @@
 import java.util.Scanner;
-import java.util.Arrays;
 
-class StringArray{
-  private String textArray[];
-  private int size;
-  public void populateArray(){
+class Numbers{
+  private int numbers[] = new int[7];
+  private boolean isTen = false;
+  private boolean isTwenty = false;
+  public void checkNumbers(){
     Scanner scanner = new Scanner(System.in);
-    System.out.print("Enter the size of the array: ");
-    size = scanner.nextInt();
-    
-    textArray = new String[size];
-    for(int i = 0; i < textArray.length; i++){
-      textArray[i] = Integer.toString(i);
+    for(int i = 0; i < numbers.length; i++){
+      System.out.printf("\nEnter number for index# %d: ", i);
+      numbers[i] = scanner.nextInt();
+}
+   
+    for(int i = 0; i < numbers.length - 1; i++){
+      if(numbers[i] == 10){
+	isTen = true;
+  	for(int j = i + 1; j < numbers.length; j++){
+  	  if(numbers[j] == 20){isTwenty = true; break;}
+}
+}
 }
 
-    System.out.print("\nString Array: " + Arrays.toString(textArray));
+    if(isTen == true && isTwenty == true){
+      System.out.print("\n10 and 20 are present. 20 is after 10.");
+}
+    else if(isTen == true && isTwenty == false){
+      System.out.print("\n10 is present but 20 is not in array after 10.");
+
+}
+
+    else{
+      System.out.print("\n10 and 20 are not present in ascending sequence.");
+}
 }
 }
 
 public class main{
   public static void main(String args[]){
-    StringArray stringArray = new StringArray();
-    stringArray.populateArray();
+    Numbers number = new Numbers();
+    number.checkNumbers();
 }
 }
