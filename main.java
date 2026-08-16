@@ -1,35 +1,32 @@
 import java.util.Scanner;
 
 class Numbers{
+  private int inputNum;
   private int numbers[] = new int[7];
-  private boolean isTen = false;
-  private boolean isTwenty = false;
   public void checkNumbers(){
     Scanner scanner = new Scanner(System.in);
     for(int i = 0; i < numbers.length; i++){
-      System.out.printf("\nEnter number for index# %d: ", i);
+      System.out.printf("\nEnter the nmber on index# %d: ", i+1);
       numbers[i] = scanner.nextInt();
-}
-   
-    for(int i = 0; i < numbers.length - 1; i++){
-      if(numbers[i] == 10){
-	isTen = true;
-  	for(int j = i + 1; j < numbers.length; j++){
-  	  if(numbers[j] == 20){isTwenty = true; break;}
-}
-}
-}
-
-    if(isTen == true && isTwenty == true){
-      System.out.print("\n10 and 20 are present. 20 is after 10.");
-}
-    else if(isTen == true && isTwenty == false){
-      System.out.print("\n10 is present but 20 is not in array after 10.");
 
 }
 
-    else{
-      System.out.print("\n10 and 20 are not present in ascending sequence.");
+    System.out.print("\nEnter the number you want to find: ");
+    inputNum = scanner.nextInt();
+
+    for(int i = 0; i < numbers.length; i++){
+      if((numbers[i] == inputNum) && (numbers[i + 1] == inputNum) && (i < numbers.length - 1)){
+	System.out.printf("\nNumbers matched. Number you gave: %d, is same as the number at %d: %d & %d: %d", inputNum, i, numbers[i], i + 1, numbers[i+1]); break;		
+	
+}
+
+      else if((numbers[i] == inputNum) && (numbers[i + 2] == inputNum) && (i < numbers.length - 2)){
+      	System.out.printf("\nNumbers matched. Number you gave: %d is same as in array at %d: %d & %d: %d",inputNum, i, numbers[i], i + 2, numbers[i+2]); break;
+}
+
+      else{
+      	if(i == numbers.length - 2){System.out.print("Nothing matched.");}
+}
 }
 }
 }
