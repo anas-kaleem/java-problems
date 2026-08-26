@@ -1,45 +1,37 @@
 import java.util.Scanner;
 
-class Twenties{
+class NumberPairs{
   private int numbers[] = new int[7];
-  private int count = 0;
-  private boolean isTrue = true;
-  private int indexes[] = new int[3];
-  public void checkTwenties(){
+  private int inputNum;
+  private boolean isTrue = false;
+  private int indexes[] = new int[4];
+  public void checkNumbers(){
     Scanner scanner = new Scanner(System.in);
     for(int i = 0; i < numbers.length; i++){
-      System.out.printf("\nEnter %dth number: ", i+1);
-      numbers[i] = scanner.nextInt(); 
-}//1st-forLoop-in-checkTwenties()
+      System.out.printf("\nEnter %dth number: ", i + 1);
+      numbers[i] = scanner.nextInt();
+}//1st-forLoop-in-NumberPairs()
+    System.out.print("\nEnter the number you wanna find: ");
+    inputNum = scanner.nextInt();
+    for(int i = 0; i < numbers.length; i = i + 2){
+      if(i + 1 >= numbers.length){
+	if(inputNum == numbers[i]){
+	  isTrue = true;continue;
+}//1st-if-in-1st-if-of-2nd-forLoop-in-checkNumbers()
+  	else{isTrue = false; continue;}
+}//1st-if-in-2nd-forLoop-in-checkNumbers()
+     else if(inputNum == numbers[i] || inputNum == numbers[i+1]){isTrue = true;}
+     else{isTrue = false;}
+}//2nd-forLoop-in-NumberPairs()
 
-int temp = 0;
-    for(int i = 0; i < numbers.length - 1; i++){
-      if(count == 3){
- 	System.out.printf("\n3 consecutive twenties found at %d, %d, %d", indexes[0], indexes[1], indexes[2]);break;
-}//1st-if-in-2nd-forLoop-in-checkTwenties()
-      else if(isTrue == false){System.out.print("\nWarning! Twenties are next to each other.");break;
-}//1st-elseIf-in-2nd-forLoop-in-checkTwenties()
-      else if(numbers[i] == 20 && numbers[i+1] != 20){
-	count = count + 1;
-        indexes[temp] = i;
-	temp = temp + 1;
-}//2nd-elseIf-in-2nd-forLoop-in-checkTwenties()
-
-      else if(numbers[i] == 20 && numbers[i+1] == 20){isTrue = false;}
-}//2nd-forLoop-in-checkTwenties()
-
-
-  if(count < 3 && isTrue == true){
-    System.out.print("\nThere are less than 3 Twenties in the array.");
-}
-    
-}//void-checkTwenties()
-}//class-Twenties{}
-
+  if(isTrue == true){System.out.print("\nYes! the number is present in every pair of numbers.");}
+  else if(isTrue == false){System.out.print("\nNo! there is not the desired number in every pair of array.");}
+}//void-checkNumbers()
+}//class-NumberPairs{}
 
 public class main{
   public static void main(String args[]){
-    Twenties twenties = new Twenties();
-    twenties.checkTwenties();
+    NumberPairs numberPair = new NumberPairs();
+    numberPair.checkNumbers();
 }
 }
