@@ -1,37 +1,40 @@
 import java.util.Scanner;
-
-class NumberPairs{
-  private int numbers[] = new int[7];
-  private int inputNum;
-  private boolean isTrue = false;
-  private int indexes[] = new int[4];
-  public void checkNumbers(){
+import java.util.Arrays;
+class ArrayPair{
+  private int array1[] = new int[5];
+  private int array2[] = new int[5];
+  
+  private int count = 0;
+  private int indexes[] = new int[5];
+  public void checkArrays(){
     Scanner scanner = new Scanner(System.in);
-    for(int i = 0; i < numbers.length; i++){
-      System.out.printf("\nEnter %dth number: ", i + 1);
-      numbers[i] = scanner.nextInt();
-}//1st-forLoop-in-NumberPairs()
-    System.out.print("\nEnter the number you wanna find: ");
-    inputNum = scanner.nextInt();
-    for(int i = 0; i < numbers.length; i = i + 2){
-      if(i + 1 >= numbers.length){
-	if(inputNum == numbers[i]){
-	  isTrue = true;continue;
-}//1st-if-in-1st-if-of-2nd-forLoop-in-checkNumbers()
-  	else{isTrue = false; continue;}
-}//1st-if-in-2nd-forLoop-in-checkNumbers()
-     else if(inputNum == numbers[i] || inputNum == numbers[i+1]){isTrue = true;}
-     else{isTrue = false;}
-}//2nd-forLoop-in-NumberPairs()
+    for(int i = 0; i < array1.length; i++){
+      System.out.printf("\nEnter %dth number of Array1: ",i+1);
+      array1[i] = scanner.nextInt();
+      System.out.printf("Enter %dthe number of Array2: ",i+1);
+      array2[i] = scanner.nextInt();
+}
+    int temp = 0;
+    for(int i = 0; i < array1.length; i++){
+      if(array1[i] - array2[i] <= 1){
+	count = count + 1;
+	indexes[temp] = 1;
+	temp = temp + 1;
+}
+      else{
+	indexes[temp] = 0;
+	temp = temp + 1;
+}
+}
 
-  if(isTrue == true){System.out.print("\nYes! the number is present in every pair of numbers.");}
-  else if(isTrue == false){System.out.print("\nNo! there is not the desired number in every pair of array.");}
-}//void-checkNumbers()
-}//class-NumberPairs{}
+System.out.printf("\nTotal of: %d numbers have difference of 1 or less than 1, they are present at: ",count);
+System.out.print(Arrays.toString(indexes));
+}
+}
 
 public class main{
   public static void main(String args[]){
-    NumberPairs numberPair = new NumberPairs();
-    numberPair.checkNumbers();
+    ArrayPair arrayPair = new ArrayPair();
+    arrayPair.checkArrays();
 }
 }
