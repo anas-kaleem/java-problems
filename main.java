@@ -1,38 +1,31 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
-class Numbers{
-  private int array[] = new int[7];
-  private boolean isTen = false;
-  private boolean isThirty = false;
-  public void checkNumbers(){
+class MyArrays{
+  private int array1[] = new int[7];
+  private int index;
+  private int size = 0;
+  private int array2[];
+  public void fillArray(){
     Scanner scanner = new Scanner(System.in);
-    for(int i = 0; i < array.length; i++){
-      System.out.printf("\nEnter %dth element: ", i+1);
-      array[i] = scanner.nextInt();
+    for(int i = 0; i < array1.length; i++){
+      System.out.printf("\nEnter the %dth number: ", i + 1);
+      array1[i] = scanner.nextInt();
+      if(array1[i] == 10){index = i;}
 }
 
-    for(int i = 0; i < array.length; i++){
-      if(isTen == true && isThirty == true){
-	System.out.print("\nYes! both ten and thirty are present in array.");break;
-
+    array2 = new int[index];
+    for(int i = 0; i < array2.length; i++){
+      array2[i] = array1[i];
 }
 
-    else if(array[i] == 10){isTen = true;}
-    else if(array[i] == 30){isThirty = true;}
-}
-
-    if(isTen == false){
-      System.out.print("\nTen is not found.");
-}
-    if(isThirty == false){
-      System.out.print("\nThirty is not found.");
-}
+    System.out.print("The resultant array is: " + Arrays.toString(array2));
 }
 }
 
 public class main{
   public static void main(String args[]){
-    Numbers number = new Numbers();
-    number.checkNumbers();
+    MyArrays myArray = new MyArrays();
+    myArray.fillArray();
 }
 }
