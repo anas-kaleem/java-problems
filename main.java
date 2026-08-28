@@ -1,38 +1,29 @@
 import java.util.Scanner;
 
-class MyArrays{
-  private int numbers[] = new int[7];
-  private boolean isTrue = false;
-  private int count = 0;
-  public void checkArray(){
+class Addition{
+  private int inputNum;
+  private int result = 0;
+  private int temp;
+  public void addNumbers(){
     Scanner scanner = new Scanner(System.in);
-    for(int i = 0; i < numbers.length; i++){
-      System.out.printf("\nEnter %dth number: ", i + 1);
-      numbers[i] = scanner.nextInt();
+    System.out.print("\nEnter the number: ");
+    inputNum = scanner.nextInt();
+    while(inputNum > 0){
+      temp = inputNum % 10;
+      if((result + temp) < 10){
+	result = result + temp;
+	inputNum = inputNum / 10;
 }
-    for(int i = 1; i < numbers.length; i++){
-      if(count == 2){
-	isTrue = true;break;
-}
-      else if(numbers[i] > numbers[i - 1]){
-  	count = count + 1;
-}
-
-      else{count = 0;}
+      else{break;}
 }
 
-    if(isTrue == true){
-      System.out.print("\nYes! three consecutive numbers are in ascending order in array.");
-}
-    else{
-      System.out.print("\nNo! three consecutive numbers are not in descending order.");
-}
+    System.out.printf("Result is: %d", result);
 }
 }
 
 public class main{
   public static void main(String args[]){
-    MyArrays myArray = new MyArrays();
-    myArray.checkArray();
+    Addition addition = new Addition();
+    addition.addNumbers();
 }
 }
