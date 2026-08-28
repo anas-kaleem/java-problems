@@ -1,26 +1,26 @@
 import java.util.Scanner;
-
-class Numbers{
-  private int array1[] = new int[7];
-  public void checkNumbers(){
+import java.util.Arrays;
+class MyArrays{
+  private int numbers[] = new int[7];
+  public void shiftArray(){
     Scanner scanner = new Scanner(System.in);
-    for(int i = 0; i < array1.length; i++){
+    for(int i = 0; i < numbers.length; i++){
       System.out.printf("\nEnter %dth number: ", i + 1);
-      array1[i] = scanner.nextInt();
-  
+      numbers[i] = scanner.nextInt();
 }
-    if(array1[0] == array1[array1.length - 2] && array1[1] == array1[array1.length - 1]){
-      System.out.print("Yes! the groups are same.");
+
+    for(int i = 0; i < numbers.length - 1; i++){  
+   	numbers[i] = numbers[i + 1];
+      
 }
-    else{
-      System.out.print("No! the groups are not same.");
-}
+
+    System.out.print("The resultant array: " + Arrays.toString(numbers));
 }
 }
 
 public class main{
   public static void main(String args[]){
-    Numbers number = new Numbers();
-    number.checkNumbers();
+    MyArrays myArray = new MyArrays();
+    myArray.shiftArray();
 }
 }
