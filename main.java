@@ -1,30 +1,35 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
-class Zeroes{
-  private long inputNum;
-  private long factorial = 1;
-  private long countZeroes = 0;
-  public void computeNumbers(){
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("\nEnter the number: ");
-    inputNum = scanner.nextInt();
-    for(int i = 1; i <= inputNum; i++){
-      factorial = (factorial * i);
+class MergedArrays{
+  private int array1[] = {1,4,5,6,8};
+  private int array2[] = {2,3,7,10};
+  private int size;
+  private int array3[];
+  public void mergeArrays(){
+    size = array1.length + array2.length;
+    array3 = new int[size];
+    int temp1 = 0;
+    int temp2 = 0;
+    for(int i = 0; i < array3.length; i++){
+      if(i < array1.length){
+  	array3[i] = array1[temp1];
+	temp1 = temp1 + 1;
 }
-    System.out.printf("\nFactorial: %d", factorial);
-    while(factorial > 0){
-      if((factorial % 10) != 0){
-	break;
+      else if(i >= array2.length){
+	array3[i] = array2[temp2];
+	temp2 = temp2 + 1;
 }
-      else if((factorial % 10) == 0){countZeroes = countZeroes + 1; factorial = factorial / 10;}
 }
-    System.out.printf("\nThe number of zeroes are: %d",countZeroes);
+    System.out.print("\nArray1: " + Arrays.toString(array1));
+    System.out.print("\nArray2: " + Arrays.toString(array2));
+    System.out.print("\nArray3: " + Arrays.toString(array3));
 }
 }
 
 public class main{
   public static void main(String args[]){
-    Zeroes zero = new Zeroes();
-    zero.computeNumbers();
+    MergedArrays mergedArray = new MergedArrays();
+    mergedArray.mergeArrays();
 }
 }
