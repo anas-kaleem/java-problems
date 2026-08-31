@@ -1,28 +1,29 @@
 import java.util.Scanner;
 
-class Stairs{
-  private int inputNum;
-  public void printStairs(){
+class Power{
+  private double inputNum;
+  public void checkNumber(){
     Scanner scanner = new Scanner(System.in);
     System.out.print("\nEnter the number: ");
-    inputNum = scanner.nextInt();
-    int temp = inputNum;
-    for(int i = 1; i <= inputNum; i++){
-      for(int j = 1; j <= i; j++){
-	if(temp == 0){break;}
-	else{
-	  System.out.print("$");
-	  temp = temp - 1;
+    inputNum = scanner.nextDouble();
+    while(inputNum > 1){
+      if((inputNum / 4) == 1){
+	inputNum = inputNum/4;
+  	System.out.print("Yes! the number is a power of 4.");
+	break;
 }
+      else{inputNum = inputNum / 4;}
 }
-	System.out.print("\n");
+
+    if(inputNum != 1){
+      System.out.print("\nNo! the number is not divided by 4.");
 }
 }
 }
 
 public class main{
   public static void main(String args[]){
-    Stairs stair = new Stairs();
-    stair.printStairs();
+    Power power = new Power();
+    power.checkNumber();
 }
 }
