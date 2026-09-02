@@ -1,32 +1,28 @@
 import java.util.Scanner;
-
-class RotatedText{
-  private String userText;
-  private String text1 = "";
-  private String text2 = "";
-  private int index;
-  public void rotateText(){
+import java.lang.Integer;
+class Palindrome{
+  private int number;
+  private String result = "";
+  public void checkPalindrome(){
     Scanner scanner = new Scanner(System.in);
-    System.out.print("\nEnter the text: ");
-    userText = scanner.nextLine();
-    for(int i = 0; i < userText.length(); i++){
-      if(userText.charAt(i) == ' '){
-	index = i + 1;
-	for(int j = index; j < userText.length(); j++){
-	  text2 = text2 + userText.charAt(j);
+    System.out.print("\nEnter the number: ");
+    number = scanner.nextInt();
+    int temp = number;
+    while(temp > 0){
+      result = result + (temp % 10);
+      temp = temp / 10;
+      
 }
-        break;
+    if(Integer.parseInt(result) == number){
+      System.out.printf("YES! the number is a palindrome: %d = %s", number, result);
 }
-      else{text1 = text1 + userText.charAt(i);}
-}
-
-	System.out.print("\nResult: " + text2 + text1);
+    else{System.out.printf("NO! the number is not a palindrome: %d != %s", number, result);}
 }
 }
 
 public class main{
   public static void main(String args[]){
-    RotatedText rotatedText = new RotatedText();
-    rotatedText.rotateText();
+    Palindrome palindrome = new Palindrome();
+    palindrome.checkPalindrome();
 }
 }
