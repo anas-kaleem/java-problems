@@ -1,40 +1,31 @@
 import java.util.Scanner;
 
-class FirstOccurence{
-  private String mainText;
-  private String searchText;
-  private int temp = 0;
-  private String occurence = "";
-  public void findString(){
+class ArrayOccurence{
+  private int inputNum;
+  private int index;
+  private boolean isTrue = false;
+  private int numbers[] = {2,4,8,9,3,10,20,2,5,4,55};
+  public void findNumber(){
     Scanner scanner = new Scanner(System.in);
-    System.out.print("Enter the text: ");
-    mainText = scanner.nextLine();
-    System.out.print("\nEnter the text to search: ");
-    searchText = scanner.nextLine();
-    mainText = mainText.toUpperCase();
-    searchText = searchText.toUpperCase();
-    for(int i = 0; i < mainText.length(); i++){
-      if(temp >= searchText.length()){
-	break;
-}
-      else if(searchText.charAt(temp) == mainText.charAt(i)){
-	occurence = occurence + i;
-	temp = temp + 1;
-}
-
-      else if(searchText.charAt(temp) != mainText.charAt(i)){
-	occurence = "";
-    	temp = 0;
+    System.out.print("\nEnter the number you want to search: ");
+    inputNum = scanner.nextInt();
+    for(int i = 0; i < numbers.length; i++){
+      if(numbers[i] == inputNum){
+      index = i;
+      isTrue = true;
+      break;
 }
 }
 
-    System.out.printf("\nThe occurence of the text you want to search is: %s", occurence);
+  if(isTrue == true){
+    System.out.printf("\nCongrats! the number occurs at: %d", index);
+}
 }
 }
 
 public class main{
   public static void main(String args[]){
-    FirstOccurence firstOccurence = new FirstOccurence();
-    firstOccurence.findString();
+    ArrayOccurence arrayOccurence = new ArrayOccurence();
+    arrayOccurence.findNumber();
 }
 }
