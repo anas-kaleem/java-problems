@@ -1,35 +1,40 @@
 import java.util.Scanner;
 
-class SquareRoot{
-  private int inputNum;
-  private int result;
-  public void computeRoot(){
+class FirstOccurence{
+  private String mainText;
+  private String searchText;
+  private int temp = 0;
+  private String occurence = "";
+  public void findString(){
     Scanner scanner = new Scanner(System.in);
-    System.out.print("\nEnter a number: ");
-    inputNum = scanner.nextInt();
-    for(int i = 0; i < inputNum; i++){
-      if(inputNum == 0 || inputNum == 1){
-	result = inputNum;
- 	break;
-}
-
-      else if((i * i) == inputNum){
-	result = i;
+    System.out.print("Enter the text: ");
+    mainText = scanner.nextLine();
+    System.out.print("\nEnter the text to search: ");
+    searchText = scanner.nextLine();
+    mainText = mainText.toUpperCase();
+    searchText = searchText.toUpperCase();
+    for(int i = 0; i < mainText.length(); i++){
+      if(temp >= searchText.length()){
 	break;
 }
-      else if((i * i) < inputNum){
-	result = i;
-}
-      else if((i * i) > inputNum){break;}
+      else if(searchText.charAt(temp) == mainText.charAt(i)){
+	occurence = occurence + i;
+	temp = temp + 1;
 }
 
-    System.out.printf("\nSquare root of %d is: %d", inputNum, result);
+      else if(searchText.charAt(temp) != mainText.charAt(i)){
+	occurence = "";
+    	temp = 0;
+}
+}
+
+    System.out.printf("\nThe occurence of the text you want to search is: %s", occurence);
 }
 }
 
 public class main{
   public static void main(String args[]){
-    SquareRoot squareRoot = new SquareRoot();
-    squareRoot.computeRoot();
+    FirstOccurence firstOccurence = new FirstOccurence();
+    firstOccurence.findString();
 }
 }
