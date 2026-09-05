@@ -1,28 +1,35 @@
 import java.util.Scanner;
-import java.lang.Integer;
-class Palindrome{
-  private int number;
-  private String result = "";
-  public void checkPalindrome(){
+
+class SquareRoot{
+  private int inputNum;
+  private int result;
+  public void computeRoot(){
     Scanner scanner = new Scanner(System.in);
-    System.out.print("\nEnter the number: ");
-    number = scanner.nextInt();
-    int temp = number;
-    while(temp > 0){
-      result = result + (temp % 10);
-      temp = temp / 10;
-      
+    System.out.print("\nEnter a number: ");
+    inputNum = scanner.nextInt();
+    for(int i = 0; i < inputNum; i++){
+      if(inputNum == 0 || inputNum == 1){
+	result = inputNum;
+ 	break;
 }
-    if(Integer.parseInt(result) == number){
-      System.out.printf("YES! the number is a palindrome: %d = %s", number, result);
+
+      else if((i * i) == inputNum){
+	result = i;
+	break;
 }
-    else{System.out.printf("NO! the number is not a palindrome: %d != %s", number, result);}
+      else if((i * i) < inputNum){
+	result = i;
+}
+      else if((i * i) > inputNum){break;}
+}
+
+    System.out.printf("\nSquare root of %d is: %d", inputNum, result);
 }
 }
 
 public class main{
   public static void main(String args[]){
-    Palindrome palindrome = new Palindrome();
-    palindrome.checkPalindrome();
+    SquareRoot squareRoot = new SquareRoot();
+    squareRoot.computeRoot();
 }
 }
