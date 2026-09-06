@@ -1,32 +1,40 @@
 import java.util.Scanner;
 
-class Matrix{
-  private int numbers[][] = {{1,5,6,9,9,23},{23,8,10,14}};
-  private int inputNum;
-  private boolean isTrue = false;
-  public void searchMatrix(){
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("\nEnter the number that you want to search: ");
-    inputNum = scanner.nextInt();
-    for(int i = 0; i < numbers.length; i++){
-      for(int j = 0; j < numbers[i].length; j++){
-	if(numbers[i][j] == inputNum){
-	  System.out.printf("\nYes! the number is present at: %dth column of %dth row", j + 1, i + 1);
-	  isTrue = true;
-	  break;
+class SubArrays{
+  private int numbers[] = {2,3,-1,5,1,0,-2};
+  private int result;
+  private int temp;
+  private String occurence = "";
+  private int index1 = 0;
+  private int index2 = 0;
+  public void sumArrays(){
+    for(int i = 0; i < (numbers.length * 2); i++){
+      if(i < numbers.length){
+	for(int j = 0; j <= index1; j++){
+	  temp = temp + numbers[j];
+	  
 }
+    if(temp > result){result = temp; occurence = "0" + " " + index1; index1 = index1 + 1;}
 }
-      if(isTrue == true){break;}
+
+      else if(i >= numbers.length){
+	for(int m = 0; m < numbers.length; m++){
+	  for(int l = m; l < numbers.length; l++){
+	    temp = temp + numbers[l];
+	    
 }
-    if(isTrue == false){
-	System.out.print("\nSorry! number has not found.");
+	if(temp > result){result = temp; occurence = m + " " + numbers.length; index1 = index1 + 1;}
 }
 }
 }
 
+    System.out.printf("\n the biggest sum is: %d at : %s",result, occurence);
+} 
+}
+
 public class main{
   public static void main(String args[]){
-    Matrix matrix = new Matrix();
-    matrix.searchMatrix();
+    SubArrays subArray = new SubArrays();
+    subArray.sumArrays();
 }
 }
