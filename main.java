@@ -1,40 +1,41 @@
 import java.util.Scanner;
 
-class SubArrays{
-  private int numbers[] = {2,3,-1,5,1,0,-2};
-  private int result;
-  private int temp;
-  private String occurence = "";
-  private int index1 = 0;
-  private int index2 = 0;
-  public void sumArrays(){
-    for(int i = 0; i < (numbers.length * 2); i++){
-      if(i < numbers.length){
-	for(int j = 0; j <= index1; j++){
-	  temp = temp + numbers[j];
-	  
+class Index{
+  private int counter = 0;
+  private int index;
+  private int target;
+  
+  private boolean isTrue = false;
+  private int numbers[] = {2,3,5,6,8,11};
+  private int arrayTemp = (numbers[numbers.length - 1]) + 1;
+  private int indexTemp = numbers.length;
+  public void findIndex(){
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("\nEnter the number: ");
+    target = scanner.nextInt();
+    while(isTrue == false){
+      if((counter < numbers.length && target < numbers[counter]) || (counter >= numbers.length && target < arrayTemp)){System.out.print("\nThe number is not in array!");break;}
+      if(counter < numbers.length && numbers[counter] == target){
+	isTrue = true;
+	index = counter;
+	
 }
-    if(temp > result){result = temp; occurence = "0" + " " + index1; index1 = index1 + 1;}
+      else if(counter >= numbers.length && target == arrayTemp){
+	isTrue = true; index = indexTemp;
+	
+}
+      else if(counter >= numbers.length && target != arrayTemp){arrayTemp = arrayTemp + 1; indexTemp = indexTemp + 1;}
+      else{counter = counter + 1;}
 }
 
-      else if(i >= numbers.length){
-	for(int m = 0; m < numbers.length; m++){
-	  for(int l = m; l < numbers.length; l++){
-	    temp = temp + numbers[l];
-	    
+    if(isTrue == true){System.out.printf("\nThe number is at: %d",index);}
+    
 }
-	if(temp > result){result = temp; occurence = m + " " + numbers.length; index1 = index1 + 1;}
-}
-}
-}
-
-    System.out.printf("\n the biggest sum is: %d at : %s",result, occurence);
-} 
 }
 
 public class main{
   public static void main(String args[]){
-    SubArrays subArray = new SubArrays();
-    subArray.sumArrays();
+    Index indexObj = new Index();
+    indexObj.findIndex();
 }
 }
