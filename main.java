@@ -1,49 +1,41 @@
 import java.util.Scanner;
 import java.util.Arrays;
 
-class Single{
-  private int numbers[];
-  private int size;
-  private String singles = "";
-  public int[] getArray(){
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("\nEnter the size of Array: ");
-    size = scanner.nextInt();
-    numbers = new int[size];
-    for(int i = 0; i < numbers.length; i++){
-      System.out.printf("\nEnter %dth value: ", i + 1);
-      numbers[i] = scanner.nextInt();
+class Duplicates{
+  private int numbers[] = {1,1,2,3,3,3,4,5,6,7,7};
+  private int tempArray[] = Arrays.copyOf(numbers, numbers.length);
+  private int extraArray[] = Arrays.copyOf(tempArray, tempArray.length);
+  private int after;
+  private int index;
+  private int size = tempArray.length;
+  public void removeDup(){
+    for(int i = 0; i < tempArray.length - 1; i++){
+      for(after = i + 1; after < tempArray.length; after++){
+  	if(tempArray[i] == tempArray[after]){
+	  index = after;
+	  size = size - 1;
+	  extraArray = new int[size];
+	  int j = 0;
+	  for(int m = 0; m < tempArray.length; m++){
+	    if(m != index){
+	      extraArray[j] = tempArray[m];
+	      j = j + 1;
 }
-    return numbers;
+}
+	  
+	  tempArray = Arrays.copyOf(extraArray, extraArray.length);
+}
+      	after = after + 1;
+}
 }
 
-  public void checkArray(){
-    int array[] = getArray();
-    int arrayCopy[] = Arrays.copyOf(array, array.length);
-    int temp;
-    boolean isTrue = false;
-    int mover = 0;
-    for(int i = 0; i < arrayCopy.length; i++){
-      temp = arrayCopy[0];
-      isTrue = false;
-      arrayCopy[0] = arrayCopy[i];
-      arrayCopy[i] = temp;
-      mover = 1;
-      while(mover < arrayCopy.length){
-	if(arrayCopy[0] == arrayCopy[mover]){
-	  isTrue = true;
-}
-      	mover = mover + 1;
-}
-      if(isTrue == false){singles = singles + " " + arrayCopy[0];}
-}
-    System.out.printf("\nThe singles are: %s", singles);
+    System.out.print("\nThe resultant array: " + Arrays.toString(tempArray));
 }
 }
 
 public class main{
   public static void main(String args[]){
-    Single single = new Single();
-    single.checkArray();
+    Duplicates duplicate = new Duplicates();
+    duplicate.removeDup();
 }
 }
