@@ -1,41 +1,49 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
-class Median{
-  private int numbers[] = {10,2,38,23,38,23,21};
-  private int pointer;
-  private int temp;
-  private int result;
-  public void sortArray(){
-    for(int i = 0; i < numbers.length - 1; i++){
-      pointer = i + 1;
-      while(pointer < numbers.length){
-	if(numbers[pointer] < numbers[i]){
-	  temp = numbers[i];
-	  numbers[i] = numbers[pointer];
-	  numbers[pointer] = temp;
+class Single{
+  private int numbers[];
+  private int size;
+  private String singles = "";
+  public int[] getArray(){
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("\nEnter the size of Array: ");
+    size = scanner.nextInt();
+    numbers = new int[size];
+    for(int i = 0; i < numbers.length; i++){
+      System.out.printf("\nEnter %dth value: ", i + 1);
+      numbers[i] = scanner.nextInt();
 }
- 	pointer = pointer + 1;
-}
-}
-}
-  public void computeMedian(){
-    sortArray();
-    int index = numbers.length / 2;;
-    if(numbers.length % 2 != 0){
-      
-      result = numbers[index + 1];
-}
-    else if(numbers.length % 2 == 0){
-      result = (numbers[index] + numbers[index + 2]) / 2;
+    return numbers;
 }
 
-    System.out.printf("\nThe median is: %d",result);
+  public void checkArray(){
+    int array[] = getArray();
+    int arrayCopy[] = Arrays.copyOf(array, array.length);
+    int temp;
+    boolean isTrue = false;
+    int mover = 0;
+    for(int i = 0; i < arrayCopy.length; i++){
+      temp = arrayCopy[0];
+      isTrue = false;
+      arrayCopy[0] = arrayCopy[i];
+      arrayCopy[i] = temp;
+      mover = 1;
+      while(mover < arrayCopy.length){
+	if(arrayCopy[0] == arrayCopy[mover]){
+	  isTrue = true;
+}
+      	mover = mover + 1;
+}
+      if(isTrue == false){singles = singles + " " + arrayCopy[0];}
+}
+    System.out.printf("\nThe singles are: %s", singles);
 }
 }
 
 public class main{
   public static void main(String args[]){
-    Median median = new Median(); 
-    median.computeMedian();
+    Single single = new Single();
+    single.checkArray();
 }
 }
