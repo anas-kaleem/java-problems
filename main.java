@@ -1,32 +1,41 @@
 import java.util.Scanner;
 
-class SubArrays{
-  private int numbers[] = {-2,-3,2,5,1,-15,-1,4};
-  private int start = 0;
-  private int end = 0;
-  private int sum = 0;
-  private int result = numbers[0];
-  private String occurence = "";
-  public void computeSum(){
-    for(int i = 0; i < numbers.length; i++){
-      sum = sum + numbers[i];
-      if(sum < result){
-	result = sum;
-  	occurence = (start + 1) + " to " + (end + 1);
-  	start = end + 1;
-  	sum = 0;
+class Median{
+  private int numbers[] = {10,2,38,23,38,23,21};
+  private int pointer;
+  private int temp;
+  private int result;
+  public void sortArray(){
+    for(int i = 0; i < numbers.length - 1; i++){
+      pointer = i + 1;
+      while(pointer < numbers.length){
+	if(numbers[pointer] < numbers[i]){
+	  temp = numbers[i];
+	  numbers[i] = numbers[pointer];
+	  numbers[pointer] = temp;
 }
-      end = end + 1;
+ 	pointer = pointer + 1;
+}
+}
+}
+  public void computeMedian(){
+    sortArray();
+    int index = numbers.length / 2;;
+    if(numbers.length % 2 != 0){
       
+      result = numbers[index + 1];
+}
+    else if(numbers.length % 2 == 0){
+      result = (numbers[index] + numbers[index + 2]) / 2;
 }
 
-    System.out.printf("\nSubarray with smalles sum starts from %s", occurence);
+    System.out.printf("\nThe median is: %d",result);
 }
 }
 
 public class main{
   public static void main(String args[]){
-    SubArrays subArray = new SubArrays();
-    subArray.computeSum();
+    Median median = new Median(); 
+    median.computeMedian();
 }
 }
