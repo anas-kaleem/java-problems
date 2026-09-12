@@ -2,40 +2,76 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 class Duplicates{
-  private int numbers[] = {1,1,2,3,3,3,4,5,6,7,7};
-  private int tempArray[] = Arrays.copyOf(numbers, numbers.length);
-  private int extraArray[] = Arrays.copyOf(tempArray, tempArray.length);
+  private int numbers[] = {1,1,2,3,3,4,5,6,7,7,7,7};
+  private int arrayCopy[];
+  private int tempArray[];
+  private int count;
+  private int sizeAscend = 0;
+  private int sizeDescend = numbers.length;
   private int after;
-  private int index;
-  private int size = tempArray.length;
+  private boolean isTrue = false;
+  private int temp;
+
   public void removeDup(){
-    for(int i = 0; i < tempArray.length - 1; i++){
-      for(after = i + 1; after < tempArray.length; after++){
-  	if(tempArray[i] == tempArray[after]){
-	  index = after;
-	  size = size - 1;
-	  extraArray = new int[size];
-	  int j = 0;
-	  for(int m = 0; m < tempArray.length; m++){
-	    if(m != index){
-	      extraArray[j] = tempArray[m];
-	      j = j + 1;
+    for(int i = 0; i < numbers.length; i++){
+      	after = 1;
+	count = 1;
+	isTrue = false;
+       	temp = numbers[0];
+       	numbers[0] = numbers[i];
+      	numbers[i] = temp;
+      	for(int j = 1; j < numbers.length; j++){
+	  if(numbers[j] == numbers[0]){
+ 	    count = count + 1;
+}
+	if(count == 2  && i == 0){
+	  isTrue = true;
+	  sizeDescend = sizeDescend - 1;
+	  arrayCopy = new int[sizeDescend];
+  	  temp = 0;  
+	  int temp2;
+	  for(int k = 0; k < numbers.length; k++){
+	    if(number.length != numbers[0]){
+	      arrayCopy[temp] = numbers[k];
+	      temp = temp + 1;
 }
 }
-	  
-	  tempArray = Arrays.copyOf(extraArray, extraArray.length);
 }
-      	after = after + 1;
+	else if(count == 2 && i > 0){
+	  isTrue = true;
+	  temp = numbers[0];
+	  sizeDescend = sizeDescend - 1; 
+}
+	if(isTrue == true){
+	  boolean makeArray = true;
+	  for(int l = 0; l < arrayCopy.length; l++){
+	    if(arrayCopy[l] == numbers[0]){
+	      makeArray = false;
+	      break;
+}
+}
+	  if(makeArray == true){
+	    arrayCopy = new int[sizeDescend];
+  	    temp = 0;  
+	    for(int k = 0; k < numbers.length; k++){
+	      if(number.length != numbers[0]){
+	        arrayCopy[temp] = numbers[k];
+	        temp = temp + 1;
+}
+}
 }
 }
 
-    System.out.print("\nThe resultant array: " + Arrays.toString(tempArray));
+ 	else if(isTrue == false){arrayCopy = Arrays.copyOf(numbers);}
+}
+
+    System.out.print("Resultant array: " + Arrays.toString(arrayCopy));
 }
 }
 
 public class main{
   public static void main(String args[]){
-    Duplicates duplicate = new Duplicates();
+    Duplicate duplicate = new Duplicate();
     duplicate.removeDup();
 }
 }
