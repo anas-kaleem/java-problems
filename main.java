@@ -1,43 +1,38 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
-class Characters{
-  private String userText;
-  private int count = 0;
-  private boolean isTrue = false;
-  private int occurence;
-  private int after;
-  public void findUnique(){
+class NthElement{
+  private int numbers[];
+  private int index;
+  private int size;
+  private int resultList[];
+  public void removeElement(){
     Scanner scanner = new Scanner(System.in);
-    System.out.print("\nEnter the text: ");
-    userText = scanner.nextLine();
-    for(int i = 0; i < userText.length() - 1; i++){
-      isTrue = false;
-      count = 0;
-      after = i + 1;
-      for(int j = after; j < userText.length(); j++){
-   	if(userText.charAt(i) == userText.charAt(j)){
-	  isTrue = true;
-	  count = count + 1;
+    System.out.print("\nEnter the size of the list: ");
+    size = scanner.nextInt();
+    numbers = new int[size];
+    for(int i = 0; i < numbers.length; i++){
+      System.out.printf("\nEnter %dth number: ",i + 1);
+      numbers[i] = scanner.nextInt();
+}
+    System.out.print("\nEnter the nth element to remove: ");
+    index = (scanner.nextInt() - 1);
+    resultList = new int[size - 1];
+    int temp = 0;
+    for(int i = 0; i < numbers.length; i++){
+      if(i != index){
+        resultList[temp] = numbers[i];
+	temp = temp + 1;
 }
 }
-	if(isTrue == false && count == 0){  
-	  occurence = i + 1;
-	  break;
-}
-}
-    if(isTrue == false){
-      System.out.printf("\nYes! there is a unique letter at: %d", occurence);
-}
-
-    else if(isTrue == true){
-      System.out.printf("\nNo! there is no unique letter in String");
-}
+    System.out.print("\nOriginal Array: " + Arrays.toString(numbers));
+    System.out.print("\nResultant Array: " + Arrays.toString(resultList));
 }
 }
 
 public class main{
   public static void main(String args[]){
-    Characters character = new Characters();
-    character.findUnique();
+    NthElement nthElement = new NthElement();
+    nthElement.removeElement();
 }
 }
